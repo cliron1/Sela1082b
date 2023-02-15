@@ -1,0 +1,27 @@
+﻿@model Link
+
+@{
+	ViewData["Title"] = "Short Link";
+}
+
+<h1>@ViewData["Title"]</h1>
+<p>Paste youre link here:</p>
+<form novalidate onsubmit="return false">
+	<div class="mb-2">
+		<input id="inputlink" class="form-control" type="url" name="urllink" required />
+		<div class="invalid-feedback">
+			Please provide a valid url.
+		</div>
+	</div>
+
+	<div class="mb-3">
+		<button id="btnSubmit" class="btn btn-sm btn-success">Shorten</button>
+	</div>
+</form>
+<div>
+	<input readonly id="result" class="form-control" />
+</div>
+
+@section Scripts {
+    <script src="~/js/shorten.js"></script>
+}
