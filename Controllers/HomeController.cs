@@ -14,7 +14,8 @@ namespace WebShortCut.Controllers {
 			_logger = logger;
 		}
 
-		public IActionResult Index() {
+		public IActionResult Index([FromServices] IConfiguration config) {
+			Debugger.Launch();
 			var cnt = appDb.Links.Count();
 
 			return View(cnt);

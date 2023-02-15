@@ -1,11 +1,17 @@
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 using WebShortCut.Models;
 
 namespace WebShortCut {
     public class Program {
         public static async Task Main(string[] args) {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Host.ConfigureAppConfiguration((hostingContext, config) => {
+				config.AddJsonFile("artur.json", optional: true, reloadOnChange: true);
+			});
 
 			builder.Services
                 .AddAuthentication()
